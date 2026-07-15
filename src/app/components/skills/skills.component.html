@@ -1,0 +1,44 @@
+<section class="section" id="competences" aria-label="Mes compétences">
+  <div class="container">
+    <p class="section-subtitle" appReveal>Expertise</p>
+    <h2 class="section-title" appReveal>Compétences</h2>
+
+    <div class="skills-categories">
+      @for (category of skillCategories; track category.title) {
+        <div class="skill-category" appReveal>
+          <h3 class="skill-category-title">
+            <i [class]="category.icon" aria-hidden="true"></i> {{ category.title }}
+          </h3>
+          <div class="skill-badges">
+            @for (skill of category.skills; track skill.label) {
+              <span class="skill-badge">
+                <i [class]="skill.icon" aria-hidden="true"></i> {{ skill.label }}
+              </span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="extras-grid">
+      <div class="extras-card" appReveal>
+        <h3><i class="fas fa-language" aria-hidden="true"></i> Langues</h3>
+        @for (lang of languages; track lang.name) {
+          <div class="lang-item">
+            <span>{{ lang.name }}</span>
+            <span class="lang-level">{{ lang.level }}</span>
+          </div>
+        }
+      </div>
+
+      <div class="extras-card" appReveal>
+        <h3><i class="fas fa-heart" aria-hidden="true"></i> Centres d'intérêt</h3>
+        @for (interest of interests; track interest.label) {
+          <div class="interest-item">
+            <span><i [class]="interest.icon" aria-hidden="true"></i> {{ interest.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

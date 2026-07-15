@@ -1,0 +1,100 @@
+<section class="section" id="contact" aria-label="Me contacter">
+  <div class="container">
+    <p class="section-subtitle" appReveal>Restons en contact</p>
+    <h2 class="section-title" appReveal>Contact</h2>
+
+    <div class="contact-wrapper">
+      <div class="contact-info" appReveal>
+        <h3>Discutons de votre projet</h3>
+        <p>
+          Vous avez un projet en tête ou souhaitez en savoir plus sur mon parcours ?
+          N'hésitez pas à me contacter. Je réponds généralement sous 24 heures.
+        </p>
+
+        <div class="contact-details">
+          <div class="contact-item">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:ranaivoluca3&#64;gmail.com">ranaivoluca3&#64;gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone" aria-hidden="true"></i>
+            <span>+261 38 36 196 03</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            <span>Antananarivo, Madagascar</span>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://github.com/Andriniaina27" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form" appReveal (ngSubmit)="onSubmit()" #contactForm="ngForm">
+        <div class="form-group">
+          <label for="name">Nom complet</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Votre nom"
+            autocomplete="name"
+            [(ngModel)]="form.name"
+          >
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="votre&#64;email.com"
+            autocomplete="email"
+            [(ngModel)]="form.email"
+          >
+        </div>
+        <div class="form-group">
+          <label for="subject">Sujet</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            required
+            placeholder="Sujet de votre message"
+            [(ngModel)]="form.subject"
+          >
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            placeholder="Votre message..."
+            [(ngModel)]="form.message"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-submit" [class.loading]="loading" [disabled]="loading || contactForm.invalid">
+          @if (loading) {
+            <i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Envoi en cours...
+          } @else {
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer
+          }
+        </button>
+        <div
+          class="form-status"
+          [class.success]="statusType === 'success'"
+          [class.error]="statusType === 'error'"
+          role="alert"
+        >
+          {{ statusMessage }}
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

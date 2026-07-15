@@ -1,0 +1,28 @@
+<app-particles />
+
+<div class="page-wrapper">
+  <app-header
+    [activeSection]="activeSection"
+    [scrolled]="headerScrolled"
+    (navigate)="onNavigate($event)"
+  />
+
+  <main id="main-content">
+    <app-hero />
+    <app-projects />
+    <app-skills />
+    <app-parcours />
+    <app-contact />
+  </main>
+
+  <app-footer />
+
+  <button
+    class="back-to-top"
+    [class.visible]="showBackToTop"
+    (click)="scrollToTop()"
+    aria-label="Retour en haut de la page"
+  >
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+</div>

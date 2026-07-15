@@ -1,0 +1,19 @@
+<section class="section" id="parcours" aria-label="Mon parcours">
+  <div class="container">
+    <p class="section-subtitle" appReveal>Expérience</p>
+    <h2 class="section-title" appReveal>Parcours</h2>
+
+    <div class="timeline">
+      @for (item of timeline; track item.title) {
+        <div class="timeline-item" appReveal>
+          <div class="timeline-card">
+            <p class="timeline-date">{{ item.date }}</p>
+            <h3 class="timeline-title">{{ item.title }}</h3>
+            <p class="timeline-subtitle">{{ item.subtitle }}</p>
+            <p class="timeline-description">{{ item.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

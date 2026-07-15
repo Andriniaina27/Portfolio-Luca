@@ -1,0 +1,49 @@
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+<header class="header" [class.scrolled]="scrolled" role="banner">
+  <div class="container header-inner">
+    <a href="#accueil" class="logo" aria-label="Accueil - Luca RANAIVO" (click)="onNavClick('accueil')">
+      <div class="logo-monogram" aria-hidden="true">
+        <img src="assets/dossier/developer.jpg" alt="" style="overflow: hidden; border-radius: 5px;">
+      </div>
+      <span>Luca</span>
+    </a>
+
+    <nav class="nav" [class.open]="menuOpen" role="navigation" aria-label="Navigation principale">
+      <ul class="nav-list">
+        <li>
+          <a href="#accueil" class="nav-link" [class.active]="activeSection === 'accueil'" (click)="onNavClick('accueil')">Accueil</a>
+        </li>
+        <li>
+          <a href="#projets" class="nav-link" [class.active]="activeSection === 'projets'" (click)="onNavClick('projets')">Projets</a>
+        </li>
+        <li>
+          <a href="#competences" class="nav-link" [class.active]="activeSection === 'competences'" (click)="onNavClick('competences')">Compétences</a>
+        </li>
+        <li>
+          <a href="#parcours" class="nav-link" [class.active]="activeSection === 'parcours'" (click)="onNavClick('parcours')">Parcours</a>
+        </li>
+        <li>
+          <a href="#contact" class="nav-link" [class.active]="activeSection === 'contact'" (click)="onNavClick('contact')">Contact</a>
+        </li>
+        <li>
+          <a href="assets/dossier/CV_Luca.pdf" class="btn-cv btn-cv-mobile" download aria-label="Télécharger le CV">
+            <i class="fas fa-file-pdf" aria-hidden="true"></i> Télécharger CV
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <button
+      class="menu-toggle"
+      [class.active]="menuOpen"
+      (click)="toggleMenu()"
+      [attr.aria-label]="menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'"
+      [attr.aria-expanded]="menuOpen"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
